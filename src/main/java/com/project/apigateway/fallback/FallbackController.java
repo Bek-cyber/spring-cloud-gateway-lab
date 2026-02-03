@@ -17,7 +17,7 @@ import java.awt.*;
 @RestController
 public class FallbackController {
 
-    @RequestMapping(value = "__fallback/mobile-bff", produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/__fallback/mobile-bff", produces = MediaType.APPLICATION_JSON_VALUE)
     public Mono<ResponseEntity<GatewayErrorResponse>> mobileBffFallback() {
         String traceId = MDC.get("traceId");
 
