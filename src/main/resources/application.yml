@@ -1,0 +1,23 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: api-gateway-lab
+
+  cloud:
+    gateway:
+      server:
+        webflux:
+          routes:
+            - id: mobile-bff
+              uri: http://localhost:8081
+              predicates:
+                - Path=/api/mobile/**
+              filters:
+                - StripPrefix=2
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
