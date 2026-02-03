@@ -70,6 +70,9 @@ public class GatewayErrorHandler implements ErrorWebExceptionHandler {
             if (rse.getStatusCode().value() == 403) {
                 return GatewayErrorCode.UNAUTHORIZED;
             }
+            if (rse.getStatusCode().value() == 429) {
+                return GatewayErrorCode.RATE_LIMIT_EXCEEDED;
+            }
         }
         return GatewayErrorCode.INTERNAL_ERROR;
     }
